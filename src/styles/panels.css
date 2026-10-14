@@ -271,3 +271,20 @@ button.badge {
 .login-lang option { background: #26262a; color: #fff; }
 .login-lang { margin-top: 18px; font-size: 13px; opacity: 0.75; animation: rise 0.8s 0.24s var(--ease-out) both; }
 .login-lang:hover { opacity: 1; }
+
+/* ---------- 版面修正 ---------- */
+/* 狀態徽章：太長時換行，但單一徽章不拆開 */
+.badges { flex-wrap: wrap; row-gap: 6px; }
+.badge { white-space: nowrap; }
+/* 迷你播放器：封面寬度以視窗寬度計算，避免超出畫面 */
+.layout-mini { --cover: min(calc(100vw - 32px), 52vh); overflow: hidden; }
+.layout-mini .cover-wrap,
+.layout-mini .now-playing { max-width: 100%; }
+
+.layout-mini .line.active { opacity: 1; color: #fff; }
+.layout-mini .trans,
+.layout-mini .romaji,
+.layout-mini ruby rt { animation: none; }
+/* 迷你版只顯示一行，不需要裁切，避免譯文被切掉 */
+.layout-mini .lyrics { overflow: visible; min-height: 4.2em; }
+.layout-mini .trans { margin-top: 0.4em; }

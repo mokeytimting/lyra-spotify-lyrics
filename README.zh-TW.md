@@ -13,6 +13,10 @@
   <a href="README.md">English</a> · <b>繁體中文</b>
 </p>
 
+<p align="center">
+  <img src="docs/screenshots/main-zh-Hant.webp" alt="Lyra 正在播放畫面：同步的日文歌詞、假名標音與中文翻譯" width="900" />
+</p>
+
 ---
 
 ## 特色
@@ -36,6 +40,19 @@
   - App 播放：聲音由 Spotify 電腦版發出，保留 320 kbps 或無損音質；Lyra 只顯示歌詞，並當作遙控器。
 - **介面支援 6 種語言**：繁體中文、简体中文、English、日本語、한국어、Español。你選的介面語言也會是預設的翻譯語言。
 - 待播清單、搜尋、歌單、已按讚的歌曲；視窗縮窄時自動變成迷你播放器。
+
+## 截圖
+
+| 待播清單與真・隨機播放進度 | 設定：語言、Spotify 連線與翻譯引擎 |
+|---|---|
+| <img src="docs/screenshots/queue-zh-Hant.webp" alt="待播清單與真・隨機播放進度" /> | <img src="docs/screenshots/settings-zh-Hant.webp" alt="設定：語言、Spotify 連線與翻譯引擎" /> |
+
+<p align="center">
+  <img src="docs/screenshots/mini-zh-Hant.webp" alt="窄視窗時的迷你播放器" width="280" /><br/>
+  <sub>窄視窗時的迷你播放器</sub>
+</p>
+
+<sub>示範用的歌曲、歌詞與封面都是為了截圖原創的。</sub>
 
 ## 需要準備
 
@@ -72,6 +89,8 @@ cd lyra-spotify-lyrics
 也可以手動執行 `npm install` 和 `npm start`，再打開 http://127.0.0.1:5180 。網址請用 `127.0.0.1`，不要用 `localhost`。
 
 第一次打開會出現設定畫面：貼上 Client ID、選擇語言和翻譯引擎，然後登入 Spotify 就完成了。
+
+> **只想先看看？** 打開 http://127.0.0.1:5180/?demo ，不用登入 Spotify 就能用示範歌曲看介面。
 
 > 想讓它像一般 App 一樣出現在開始選單或 Dock：在 Chrome 打開後，按網址列右邊的「安裝」圖示。安裝後仍需要先啟動本機伺服器。
 

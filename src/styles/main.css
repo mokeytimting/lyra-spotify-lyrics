@@ -478,7 +478,7 @@ ruby rt {
 }
 .layout-mini .line { display: none; max-width: none; margin: 0; transform: none; filter: none; opacity: 1; animation: none; }
 .layout-mini .line.active { display: block; animation: miniLine 0.5s var(--ease-out); font-size: clamp(18px, 5vw, 26px); }
-@keyframes miniLine { from { opacity: 0; transform: translateY(10px); } }
+@keyframes miniLine { from { transform: translateY(12px); } }
 .layout-mini .now-playing { order: 2; width: var(--cover); }
 .layout-mini .badges { display: none; }
 .layout-mini .controls { opacity: 0; transition: opacity 0.25s; }

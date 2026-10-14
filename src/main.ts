@@ -2,7 +2,7 @@ import './styles/main.css';
 import './styles/panels.css';
 import { CONFIG } from './config';
 import { tApp } from './i18n/appStrings';
-import { getLang } from './i18n';
+import { getLang, isUiLang, setLangNoReload } from './i18n';
 import { AuthRequiredError, beginLogin, handleCallback, hasTokens, logout } from './spotify/auth';
 import { createShell } from './ui/shell';
 import { SettingsPanel } from './ui/settingsPanel';
@@ -42,6 +42,15 @@ function showLogin(): void {
 }
 
 async function boot(): Promise<void> {
+  // 示範模式：/?demo&view=main|queue|settings&lang=en
+  const params = new URLSearchParams(location.search);
+  if (params.has('demo')) {
+    const lang = params.get('lang');
+    if (isUiLang(lang)) setLangNoReload(lang);
+    document.documentElement.lang = getLang();
+    const { startDemo } = await import('./demo');
+    return startDemo(root, params.get('view') ?? 'main');
+  }
   let settings: PublicSettings;
   try {
     settings = await loadSettings();

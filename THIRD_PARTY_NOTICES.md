@@ -15,3 +15,5 @@ Services:
 - **[LRCLIB](https://lrclib.net)**: community-maintained synced lyrics. Please consider contributing lyrics there.
 - **[Spotify Web API / Web Playback SDK](https://developer.spotify.com)**: playback and metadata, subject to the [Spotify Developer Terms](https://developer.spotify.com/terms). Lyra is not affiliated with or endorsed by Spotify.
 - Optional translation providers (DeepL, Microsoft Translator, OpenAI-compatible APIs, Chrome's built-in Translator API) are used only if you configure them, under their own terms.
+
+Demo cover images in `public/demo/` were generated for this project with an AI image model and contain no third-party artwork. The demo song and lyrics are original.

@@ -13,6 +13,10 @@
   <b>English</b> · <a href="README.zh-TW.md">繁體中文</a>
 </p>
 
+<p align="center">
+  <img src="docs/screenshots/main-en.webp" alt="Lyra Now Playing screen with synced Japanese lyrics, furigana and English translation" width="900" />
+</p>
+
 ---
 
 ## Features
@@ -36,6 +40,19 @@
   - Remote-control the Spotify desktop app. Audio stays at 320 kbps or lossless, and Lyra only shows the lyrics.
 - **Interface in 6 languages:** English, 繁體中文, 简体中文, 日本語, 한국어 and Español. The language you choose is also the default translation language.
 - Up Next queue, search, playlists and Liked Songs. Narrow windows switch to a mini player automatically.
+
+## Screenshots
+
+| Up Next queue and True Shuffle progress | Settings: language, Spotify connection and translation engine |
+|---|---|
+| <img src="docs/screenshots/queue-en.webp" alt="Up Next queue and True Shuffle progress" /> | <img src="docs/screenshots/settings-en.webp" alt="Settings: language, Spotify connection and translation engine" /> |
+
+<p align="center">
+  <img src="docs/screenshots/mini-en.webp" alt="Mini player for narrow windows" width="280" /><br/>
+  <sub>Mini player for narrow windows</sub>
+</p>
+
+<sub>Demo song, lyrics and cover art are original, made for these screenshots.</sub>
 
 ## Requirements
 
@@ -72,6 +89,8 @@ The launcher installs dependencies, starts the local server and opens Lyra in a 
 You can also run `npm install` and `npm start` yourself, then open http://127.0.0.1:5180. Use `127.0.0.1`, not `localhost`.
 
 The first time you open Lyra, a setup screen appears. Paste your Client ID, pick a language and a translation engine, then log in with Spotify.
+
+> **Just want a look?** Open http://127.0.0.1:5180/?demo to see the interface with a demo song, no Spotify login needed.
 
 > To get Lyra into your Start menu or Dock, open it in Chrome and click the **Install** icon in the address bar. The local server still needs to be running.
 
