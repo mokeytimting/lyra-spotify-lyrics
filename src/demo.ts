@@ -96,10 +96,12 @@ export async function startDemo(root: HTMLElement, view: string): Promise<void> 
   const target = getTargetLang();
   nowPlaying.setMode('web');
   nowPlaying.setEngine(target === 'ja' ? null : 'deepl');
-  nowPlaying.setToggles({ translation: true, romaji: false, romajiAvailable: true });
+  // &romaji=1：同時顯示羅馬拼音
+  const showRomaji = new URLSearchParams(location.search).get('romaji') === '1';
+  nowPlaying.setToggles({ translation: true, romaji: showRomaji, romajiAvailable: true });
 
   const lyrics = new LyricsView(shell.lyricsRoot, noop);
-  lyrics.setOptions({ showTranslation: true, showRomaji: false, offsetMs: 0 });
+  lyrics.setOptions({ showTranslation: true, showRomaji, offsetMs: 0 });
   lyrics.setLines(
     LYRICS.map((l) => ({ timeMs: l.t, text: l.ja })),
     'ja',

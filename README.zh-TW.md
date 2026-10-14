@@ -48,6 +48,11 @@
 | <img src="docs/screenshots/queue-zh-Hant.webp" alt="待播清單與真・隨機播放進度" /> | <img src="docs/screenshots/settings-zh-Hant.webp" alt="設定：語言、Spotify 連線與翻譯引擎" /> |
 
 <p align="center">
+  <img src="docs/screenshots/romaji-zh-Hant.webp" alt="假名標音、羅馬拼音與翻譯同時顯示（用「Ar」按鈕開關羅馬拼音）" width="900" /><br/>
+  <sub>假名標音、羅馬拼音與翻譯同時顯示（用「Ar」按鈕開關羅馬拼音）</sub>
+</p>
+
+<p align="center">
   <img src="docs/screenshots/mini-zh-Hant.webp" alt="窄視窗時的迷你播放器" width="280" /><br/>
   <sub>窄視窗時的迷你播放器</sub>
 </p>

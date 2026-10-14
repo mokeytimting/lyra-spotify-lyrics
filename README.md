@@ -48,6 +48,11 @@
 | <img src="docs/screenshots/queue-en.webp" alt="Up Next queue and True Shuffle progress" /> | <img src="docs/screenshots/settings-en.webp" alt="Settings: language, Spotify connection and translation engine" /> |
 
 <p align="center">
+  <img src="docs/screenshots/romaji-en.webp" alt="Furigana, romaji and translation shown together (toggle romaji with the “Ar” button)" width="900" /><br/>
+  <sub>Furigana, romaji and translation shown together (toggle romaji with the “Ar” button)</sub>
+</p>
+
+<p align="center">
   <img src="docs/screenshots/mini-en.webp" alt="Mini player for narrow windows" width="280" /><br/>
   <sub>Mini player for narrow windows</sub>
 </p>
