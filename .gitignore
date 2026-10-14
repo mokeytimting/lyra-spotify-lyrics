@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env.local
+.superpowers/
+data/
+.ds_last_job.json
+.claude/
+.ds_*
+docs/superpowers/

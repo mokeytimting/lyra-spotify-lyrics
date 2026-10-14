@@ -1,0 +1,28 @@
+{
+  "name": "lyra-player",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "start": "vite"
+  },
+  "dependencies": {
+    "kuromoji": "^0.1.2",
+    "kuroshiro": "^1.2.1",
+    "kuroshiro-analyzer-kuromoji": "^1.1.0",
+    "opencc-js": "^1.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/spotify-web-playback-sdk": "^0.1.19",
+    "happy-dom": "^21.0.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.4"
+  },
+  "description": "Spotify 同步歌詞播放器：翻譯、假名標音、真・隨機播放",
+  "license": "MIT"
+}
