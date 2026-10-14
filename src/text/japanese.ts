@@ -6,7 +6,7 @@ let initPromise: Promise<void> | null = null;
  * 初始化 kuroshiro（含 kuromoji 字典）。只會初始化一次；
  * 之後重複呼叫都會拿到同一個 Promise，dictPath 以第一次呼叫的為準。
  */
-export function initJapanese(dictPath: string = '/kuromoji-dict/'): Promise<void> {
+export function initJapanese(dictPath: string = `${import.meta.env.BASE_URL}kuromoji-dict/`): Promise<void> {
   if (initPromise === null) {
     initPromise = (async () => {
       // @ts-ignore

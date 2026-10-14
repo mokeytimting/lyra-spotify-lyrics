@@ -288,3 +288,45 @@ button.badge {
 /* 迷你版只顯示一行，不需要裁切，避免譯文被切掉 */
 .layout-mini .lyrics { overflow: visible; min-height: 4.2em; }
 .layout-mini .trans { margin-top: 0.4em; }
+
+/* ---------- 示範模式工具列 ---------- */
+.demo-bar {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  z-index: 30;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: calc(100vw - 24px);
+  overflow-x: auto;
+  padding: 6px 8px;
+  border-radius: 99px;
+  background: var(--glass);
+  backdrop-filter: blur(24px) saturate(1.4);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  font-size: 13px;
+  white-space: nowrap;
+  animation: rise 0.6s var(--ease-out) both;
+}
+.demo-label { padding: 0 8px; color: var(--fg-dim); font-weight: 600; }
+.demo-bar button,
+.demo-bar select,
+.demo-star {
+  padding: 6px 12px;
+  border-radius: 99px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+.demo-bar button:hover,
+.demo-bar select:hover { background: rgba(255, 255, 255, 0.18); }
+.demo-bar button.on { background: #fff; color: #000; font-weight: 600; }
+.demo-bar select option { background: #26262a; }
+.demo-star { background: linear-gradient(135deg, #ff5f8a, #a855f7); font-weight: 600; }
+.demo-star:hover { filter: brightness(1.1); }

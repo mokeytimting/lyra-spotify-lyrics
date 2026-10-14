@@ -13,11 +13,19 @@
   <a href="README.md">English</a> · <b>繁體中文</b>
 </p>
 
+<p align="center"><a href="https://mokeytimting.github.io/lyra-spotify-lyrics/"><b>▶ 線上試玩</b></a>：免安裝、免登入</p>
+
 <p align="center">
-  <img src="docs/screenshots/main-zh-Hant.webp" alt="Lyra 正在播放畫面：同步的日文歌詞、假名標音與中文翻譯" width="900" />
+  <img src="docs/screenshots/demo-wave.webp" alt="Lyra 正在播放畫面：同步的日文歌詞、假名標音與中文翻譯" width="900" />
 </p>
 
 ---
+
+## 為什麼做 Lyra？
+
+- **Spotify 的隨機播放不夠隨機。** 很多人抱怨大歌單老是重複那幾首，有些歌幾乎永遠輪不到。Spotify 官方論壇上[要求「真正隨機播放」的許願串](https://community.spotify.com/t5/Live-Ideas/All-Platforms-Option-to-have-a-true-shuffle/idi-p/4880594)已經留言兩百多頁，官方一直沒處理。Lyra 的**真・隨機播放**像洗牌一樣，整份清單每首都播過一次才重新洗牌，跨天也記得播到哪。
+- **看得懂的歌詞。** Spotify 有歌詞，但沒有翻譯、假名和羅馬拼音。Lyra 三樣都有，很適合學日文的人和日韓流行音樂迷。
+- **只用官方 API。** 不修改 Spotify 官方程式，Spotify 更新也不會壞掉。
 
 ## 特色
 

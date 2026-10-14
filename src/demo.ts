@@ -3,7 +3,7 @@
  * 網址：/?demo（可加 &view=main|queue|settings、&lang=en|zh-Hant|...）
  * README 的截圖也是用這個模式產生的。
  */
-import { getTargetLang, type TargetLang } from './i18n';
+import { defineStrings, getLang, getTargetLang, UI_LANGS, type TargetLang } from './i18n';
 import { createShell } from './ui/shell';
 import { NowPlayingView } from './ui/nowPlaying';
 import { LyricsView } from './ui/lyricsView';
@@ -30,7 +30,9 @@ const LYRICS: { t: number; ja: string; tr: Partial<Record<TargetLang, string>> }
   { t: 36800, ja: 'この歌が終わるまでに', tr: { en: 'Before this song comes to an end', 'zh-Hant': '在這首歌結束之前', 'zh-Hans': '在这首歌结束之前', ko: '이 노래가 끝나기 전에', es: 'Antes de que termine esta canción' } },
 ];
 
-const COVER = '/demo/cover.jpg';
+/** 部署在子路徑（例如 GitHub Pages）時也找得到靜態檔 */
+const BASE = import.meta.env.BASE_URL;
+const COVER = `${BASE}demo/cover.jpg`;
 const TRACK: Track = {
   id: 'demo',
   uri: 'spotify:track:demo',
@@ -42,13 +44,13 @@ const TRACK: Track = {
 };
 
 const QUEUE: Track[] = [
-  ['Paper Boats', 'Mio Hayase', '/demo/cover2.jpg', 201000],
-  ['Neon River', 'Kite Avenue', '/demo/cover3.jpg', 187000],
+  ['Paper Boats', 'Mio Hayase', `${BASE}demo/cover2.jpg`, 201000],
+  ['Neon River', 'Kite Avenue', `${BASE}demo/cover3.jpg`, 187000],
   ['夜明けのバス', 'Sora Akari', COVER, 233000],
-  ['Glass Garden', 'Mio Hayase', '/demo/cover2.jpg', 245000],
-  ['Northbound', 'Kite Avenue', '/demo/cover3.jpg', 198000],
+  ['Glass Garden', 'Mio Hayase', `${BASE}demo/cover2.jpg`, 245000],
+  ['Northbound', 'Kite Avenue', `${BASE}demo/cover3.jpg`, 198000],
   ['Small Hours', 'Sora Akari', COVER, 221000],
-  ['Afterglow', 'Mio Hayase', '/demo/cover2.jpg', 176000],
+  ['Afterglow', 'Mio Hayase', `${BASE}demo/cover2.jpg`, 176000],
 ].map(([name, artist, img, dur], i) => ({
   id: `q${i}`,
   uri: `spotify:track:q${i}`,
@@ -68,6 +70,69 @@ const DEMO_SETTINGS: PublicSettings = {
     openai: { baseUrl: 'https://api.openai.com/v1', model: 'gpt-4o-mini', hasKey: false },
   },
 };
+
+const tDemo = defineStrings({
+  'zh-Hant': { demo: '線上試玩', lyrics: '歌詞', queue: '待播清單', settings: '設定', romaji: '羅馬拼音', star: '在 GitHub 取得 Lyra' },
+  'zh-Hans': { demo: '在线试玩', lyrics: '歌词', queue: '待播清单', settings: '设置', romaji: '罗马音', star: '在 GitHub 获取 Lyra' },
+  en: { demo: 'Live demo', lyrics: 'Lyrics', queue: 'Up Next', settings: 'Settings', romaji: 'Romaji', star: 'Get Lyra on GitHub' },
+  ja: { demo: 'デモ', lyrics: '歌詞', queue: '次に再生', settings: '設定', romaji: 'ローマ字', star: 'GitHub で Lyra を入手' },
+  ko: { demo: '라이브 데모', lyrics: '가사', queue: '다음 재생', settings: '설정', romaji: '로마자', star: 'GitHub에서 Lyra 받기' },
+  es: { demo: 'Demo en vivo', lyrics: 'Letra', queue: 'A continuación', settings: 'Ajustes', romaji: 'Romaji', star: 'Consigue Lyra en GitHub' },
+});
+
+const REPO_URL = 'https://github.com/mokeytimting/lyra-spotify-lyrics';
+
+/** 示範模式下方的小工具列：切換畫面、語言、羅馬拼音，以及前往 GitHub（&shot=1 時隱藏，用於截圖） */
+function demoBar(view: string, romaji: boolean): HTMLElement {
+  const go = (patch: Record<string, string | null>): void => {
+    const u = new URL(location.href);
+    u.searchParams.set('demo', '');
+    for (const [k, v] of Object.entries(patch)) {
+      if (v === null) u.searchParams.delete(k);
+      else u.searchParams.set(k, v);
+    }
+    location.href = u.toString();
+  };
+  const bar = document.createElement('div');
+  bar.className = 'demo-bar';
+  const label = document.createElement('span');
+  label.className = 'demo-label';
+  label.textContent = tDemo('demo');
+  bar.appendChild(label);
+  for (const [id, key] of [['main', 'lyrics'], ['queue', 'queue'], ['settings', 'settings']] as const) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = tDemo(key);
+    b.classList.toggle('on', view === id);
+    b.addEventListener('click', () => go({ view: id }));
+    bar.appendChild(b);
+  }
+  const r = document.createElement('button');
+  r.type = 'button';
+  r.textContent = tDemo('romaji');
+  r.classList.toggle('on', romaji);
+  r.addEventListener('click', () => go({ romaji: romaji ? null : '1' }));
+  bar.appendChild(r);
+  const sel = document.createElement('select');
+  sel.setAttribute('aria-label', 'Language');
+  for (const l of UI_LANGS) {
+    const o = document.createElement('option');
+    o.value = l.id;
+    o.textContent = l.label;
+    o.selected = l.id === getLang();
+    sel.appendChild(o);
+  }
+  sel.addEventListener('change', () => go({ lang: sel.value }));
+  bar.appendChild(sel);
+  const a = document.createElement('a');
+  a.className = 'demo-star';
+  a.href = REPO_URL;
+  a.target = '_blank';
+  a.rel = 'noopener';
+  a.textContent = '★ ' + tDemo('star');
+  bar.appendChild(a);
+  return bar;
+}
 
 export async function startDemo(root: HTMLElement, view: string): Promise<void> {
   const shell = createShell(root);
@@ -113,6 +178,8 @@ export async function startDemo(root: HTMLElement, view: string): Promise<void> 
   } catch (e) {
     console.warn('示範模式：假名載入失敗', e);
   }
+
+  if (new URLSearchParams(location.search).get('shot') !== '1') root.appendChild(demoBar(view, showRomaji));
 
   // 播放進度與歌詞跟著時間前進（從第 3 句開始，循環播放）
   const start = performance.now() - LYRICS[2]!.t - 1500;

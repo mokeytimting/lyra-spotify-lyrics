@@ -7,7 +7,8 @@
     "dev": "vite",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
-    "start": "vite"
+    "start": "vite",
+    "build:demo": "vite build --base=/lyra-spotify-lyrics/ && node -e \"require('fs').cpSync('node_modules/kuromoji/dict','dist/kuromoji-dict',{recursive:true})\""
   },
   "dependencies": {
     "kuromoji": "^0.1.2",

@@ -44,7 +44,8 @@ function showLogin(): void {
 async function boot(): Promise<void> {
   // 示範模式：/?demo&view=main|queue|settings&lang=en
   const params = new URLSearchParams(location.search);
-  if (params.has('demo')) {
+  // GitHub Pages 上的線上試玩版只有示範模式
+  if (params.has('demo') || import.meta.env.VITE_STATIC_DEMO === '1') {
     const lang = params.get('lang');
     if (isUiLang(lang)) setLangNoReload(lang);
     document.documentElement.lang = getLang();

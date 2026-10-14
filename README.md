@@ -13,11 +13,19 @@
   <b>English</b> · <a href="README.zh-TW.md">繁體中文</a>
 </p>
 
+<p align="center"><a href="https://mokeytimting.github.io/lyra-spotify-lyrics/"><b>▶ Try the live demo</b></a> — no install, no login</p>
+
 <p align="center">
-  <img src="docs/screenshots/main-en.webp" alt="Lyra Now Playing screen with synced Japanese lyrics, furigana and English translation" width="900" />
+  <img src="docs/screenshots/demo-wave.webp" alt="Lyra Now Playing screen with synced Japanese lyrics, furigana and English translation" width="900" />
 </p>
 
 ---
+
+## Why Lyra?
+
+- **Spotify's shuffle isn't really random.** Listeners have complained for years about hearing the same songs over and over while others never play. The [community request for a true shuffle](https://community.spotify.com/t5/Live-Ideas/All-Platforms-Option-to-have-a-true-shuffle/idi-p/4880594) has grown to 200+ pages without a fix. Lyra's **True Shuffle** deals your playlist like a deck of cards: every song plays exactly once before reshuffling, and it remembers where you are across days.
+- **Lyrics you can actually understand.** Spotify shows lyrics, but no translation, furigana or romaji. Lyra adds all three, which is great for language learners and J-pop/K-pop fans.
+- **Official APIs only.** Unlike client mods, Lyra doesn't patch the Spotify app, so Spotify updates won't break it.
 
 ## Features
 
